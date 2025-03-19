@@ -5,7 +5,7 @@ function getCookie(name) {
   return null;
 }
 document.addEventListener("DOMContentLoaded", function () {
-  const cardButton = document.querySelector(".card-button");
+  const cardButton = document.querySelectorAll(".card-button");
   const token = getCookie("token");
   // Helper function to get cookie by name
 
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .then((userData) => {
         console.log(userData);
-        cardButton.addEventListener("click", function () {
+        cardButton[0].addEventListener("click", function () {
           if (
             localStorage.getItem("level") != null &&
             localStorage.getItem("game") != null
@@ -42,6 +42,25 @@ document.addEventListener("DOMContentLoaded", function () {
               }), // Chuyển đổi object thành JSON
             });
             window.open(`http://localhost:4000/${userData._id}`, "_blank");
+          }
+        });
+        cardButton[1].addEventListener("click", function () {
+          if (
+            localStorage.getItem("level") != null &&
+            localStorage.getItem("game") != null
+          ) {
+            fetch("/playing", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json", // Gửi dữ liệu dưới dạng JSON
+                Authorization: `Bearer ${token}`,
+              },
+              body: JSON.stringify({
+                level: localStorage.getItem("level"),
+                game: localStorage.getItem("game"),
+              }), // Chuyển đổi object thành JSON
+            });
+            window.open(`http://localhost:9000/${userData._id}`, "_blank");
           }
         });
       })

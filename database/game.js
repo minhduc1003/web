@@ -61,11 +61,7 @@ app.use("/:id", async (req, res, next) => {
     }
   }
 
-  // Choose directory based on gameId
-  const gameDirectory =
-    gameId === "1" ? "game1" : gameId === "2" ? "game2" : "game1"; // Default to game1
-
-  express.static(path.join(__dirname, gameDirectory), {
+  express.static(path.join(__dirname, "game1"), {
     setHeaders: (res, filePath) => {
       if (filePath.endsWith(".gz")) {
         res.setHeader("Content-Encoding", "gzip");

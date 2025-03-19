@@ -13,7 +13,7 @@
         <div class="form-container register-container">
             <form  method="POST" id="registerForm" action="/register">
                 <h1>Create Account</h1>
-                <input type="text" name="name" placeholder="Họ và tên">
+                <input type="text" name="name" id="name" placeholder="Họ và tên">
                 <input type="text" name="school" placeholder="Trường">
                 <input type="text" name="class"placeholder="Lớp">
                 <input type="email" id="email" name="email" placeholder="Tên tài khoản">
@@ -25,8 +25,8 @@
         <div class="form-container login-container">
             <form  method="POST" id="loginForm" action="/login">
                 <h1>Đăng nhập</h1>
-                <input type="email" id="email" name="email" placeholder="Tên tài khoản">
-                <input type="password" id="password" name="password" placeholder="Mật khẩu">
+                <input type="email" class="email" name="email" placeholder="Tên tài khoản">
+                <input type="password" class="password" name="password" placeholder="Mật khẩu">
                 <button type="submit" >Đăng nhập</button>
                 <!-- <span>or use your acccount</span> -->
                 <!-- <div class="social-container">

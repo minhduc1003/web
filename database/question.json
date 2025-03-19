@@ -1,226 +1,224 @@
 [
-    {
-      "game": "1",
-      "level": "1",
-      "questions": [
-        {
-          "questionText": "Đâu là động vật?",
-          "answers": [
-            { "text": "Dog", "isCorrect": true },
-            { "text": "Car", "isCorrect": false },
-            { "text": "Cat", "isCorrect": true },
-            { "text": "Tree", "isCorrect": false },
-            { "text": "Fish", "isCorrect": true },
-            { "text": "Banana", "isCorrect": false },
-            { "text": "Bird", "isCorrect": true },
-            { "text": "House", "isCorrect": false },
-            { "text": "Horse", "isCorrect": true },
-            { "text": "Chair", "isCorrect": false },
-            { "text": "Elephant", "isCorrect": true },
-            { "text": "Phone", "isCorrect": false }
-          ]
-        },
-        {
-          "questionText": "Đâu là động vật là con gì?",
-          "answers": [
-            { "text": "Dog", "isCorrect": true },
-            { "text": "Car", "isCorrect": false },
-            { "text": "Cat", "isCorrect": true },
-            { "text": "Tree", "isCorrect": false },
-            { "text": "Fish", "isCorrect": true },
-            { "text": "Banana", "isCorrect": false },
-            { "text": "Bird", "isCorrect": true },
-            { "text": "House", "isCorrect": false },
-            { "text": "Horse", "isCorrect": true },
-            { "text": "Chair", "isCorrect": false },
-            { "text": "Elephant", "isCorrect": true },
-            { "text": "Phone", "isCorrect": false }
-          ]
-        },
-        {
-          "questionText": "Chọn nguyên tố hóa học",
-          "answers": [
-            { "text": "Hydrogen", "isCorrect": true },
-            { "text": "Banana", "isCorrect": false },
-            { "text": "Oxygen", "isCorrect": true },
-            { "text": "Dog", "isCorrect": false },
-            { "text": "Neon", "isCorrect": true },
-            { "text": "Cat", "isCorrect": false },
-            { "text": "Helium", "isCorrect": true },
-            { "text": "Fish", "isCorrect": false },
-            { "text": "Nitrogen", "isCorrect": true },
-            { "text": "Chair", "isCorrect": false },
-            { "text": "Carbon", "isCorrect": true },
-            { "text": "Tree", "isCorrect": false }
-          ]
-        }
-      ]
-    },
-    {
-      "game": "2",
-      "level": "1",
-      "questions": [
-          {
-              "questionText": "Bạn có đồng ý rằng học lập trình giúp cải thiện tư duy logic không?",
-              "type": 1,
-              "answers": [
-                  { "text": "Đồng tình", "isCorrect": true },
-                  { "text": "Không đồng tình", "isCorrect": false }
-              ]
-          },
-          {
-              "questionText": "Bạn có đồng ý rằng AI sẽ thay thế hoàn toàn con người trong công việc không?",
-              "type": 1,
-              "answers": [
-                  { "text": "Đồng tình", "isCorrect": false },
-                  { "text": "Không đồng tình", "isCorrect": true }
-              ]
-          },
-          {
-              "questionText": "Đâu là thủ đô của Việt Nam?",
-              "type": 2,
-              "answers": [
-                  { "text": "Hà Nội", "isCorrect": true },
-                  { "text": "TP. Hồ Chí Minh", "isCorrect": false },
-                  { "text": "Đà Nẵng", "isCorrect": false },
-                  { "text": "Hải Phòng", "isCorrect": false }
-              ]
-          },
-          {
-              "questionText": "Hãy nhập vào ngôn ngữ lập trình mà bạn yêu thích nhất.",
-              "type": 3,
-              "answers": [
-                  { "text": "Python", "isCorrect": true },
-                  { "text": "Java", "isCorrect": false },
-                  { "text": "C++", "isCorrect": false },
-                  { "text": "JavaScript", "isCorrect": false }
-              ]
-          },
-          {
-              "questionText": "Những công nghệ nào sau đây liên quan đến trí tuệ nhân tạo?",
-              "type": 4,
-              "answers": [
-                  { "text": "Machine Learning", "isCorrect": true },
-                  { "text": "Blockchain", "isCorrect": false },
-                  { "text": "Deep Learning", "isCorrect": true },
-                  { "text": "Quantum Computing", "isCorrect": false },
-                  { "text": "Neural Networks", "isCorrect": true },
-                  { "text": "Cybersecurity", "isCorrect": false }
-              ]
-          }
-      ]
-    },
-    {
-      "game": "1",
-      "level": "2",
-      "questions": [
-        {
-          "questionText": "Đâu là động vật?",
-          "answers": [
-            { "text": "Dog", "isCorrect": true },
-            { "text": "Car", "isCorrect": false },
-            { "text": "Cat", "isCorrect": true },
-            { "text": "Tree", "isCorrect": false },
-            { "text": "Fish", "isCorrect": true },
-            { "text": "Banana", "isCorrect": false },
-            { "text": "Bird", "isCorrect": true },
-            { "text": "House", "isCorrect": false },
-            { "text": "Horse", "isCorrect": true },
-            { "text": "Chair", "isCorrect": false },
-            { "text": "Elephant", "isCorrect": true },
-            { "text": "Phone", "isCorrect": false }
-          ]
-        },
-        {
-          "questionText": "Đâu là động vật là con gì?",
-          "answers": [
-            { "text": "Dog", "isCorrect": true },
-            { "text": "Car", "isCorrect": false },
-            { "text": "Cat", "isCorrect": true },
-            { "text": "Tree", "isCorrect": false },
-            { "text": "Fish", "isCorrect": true },
-            { "text": "Banana", "isCorrect": false },
-            { "text": "Bird", "isCorrect": true },
-            { "text": "House", "isCorrect": false },
-            { "text": "Horse", "isCorrect": true },
-            { "text": "Chair", "isCorrect": false },
-            { "text": "Elephant", "isCorrect": true },
-            { "text": "Phone", "isCorrect": false }
-          ]
-        },
-        {
-          "questionText": "Chọn nguyên tố hóa học",
-          "answers": [
-            { "text": "Hydrogen", "isCorrect": true },
-            { "text": "Banana", "isCorrect": false },
-            { "text": "Oxygen", "isCorrect": true },
-            { "text": "Dog", "isCorrect": false },
-            { "text": "Neon", "isCorrect": true },
-            { "text": "Cat", "isCorrect": false },
-            { "text": "Helium", "isCorrect": true },
-            { "text": "Fish", "isCorrect": false },
-            { "text": "Nitrogen", "isCorrect": true },
-            { "text": "Chair", "isCorrect": false },
-            { "text": "Carbon", "isCorrect": true },
-            { "text": "Tree", "isCorrect": false }
-          ]
-        }
-      ]
-    },
-    {
-      "game": "2",
-      "level": "2",
-      "questions": [
-          {
-              "questionText": "Bạn  không?",
-              "type": 1,
-              "answers": [
-                  { "text": "Đồng tình", "isCorrect": true },
-                  { "text": "Không đồng tình", "isCorrect": false }
-              ]
-          },
-          {
-              "questionText": "Bạn có đệc không?",
-              "type": 1,
-              "answers": [
-                  { "text": "Đồng tình", "isCorrect": false },
-                  { "text": "Không đồng tình", "isCorrect": true }
-              ]
-          },
-          {
-              "questionText": "Đâu làcủa Việt Nam?",
-              "type": 2,
-              "answers": [
-                  { "text": "Hà Nội", "isCorrect": true },
-                  { "text": "TP. Hồ Chí Minh", "isCorrect": false },
-                  { "text": "Đà Nẵng", "isCorrect": false },
-                  { "text": "Hải Phòng", "isCorrect": false }
-              ]
-          },
-          {
-              "questionText": "Hãy nhập vào n yêu thích nhất.",
-              "type": 3,
-              "answers": [
-                  { "text": "Python", "isCorrect": true },
-                  { "text": "Java", "isCorrect": false },
-                  { "text": "C++", "isCorrect": false },
-                  { "text": "JavaScript", "isCorrect": false }
-              ]
-          },
-          {
-              "questionText": "Những công tuệ nhân tạo?",
-              "type": 4,
-              "answers": [
-                  { "text": "Machine Learning", "isCorrect": true },
-                  { "text": "Blockchain", "isCorrect": false },
-                  { "text": "Deep Learning", "isCorrect": true },
-                  { "text": "Quantum Computing", "isCorrect": false },
-                  { "text": "Neural Networks", "isCorrect": true },
-                  { "text": "Cybersecurity", "isCorrect": false }
-              ]
-          }
-      ]
-    }
-  ] 
-
-  
+  {
+    "game": "1",
+    "level": "1",
+    "questions": [
+      {
+        "questionText": "Đâu là động vật?",
+        "answers": [
+          { "text": "Dog", "isCorrect": true },
+          { "text": "Car", "isCorrect": false },
+          { "text": "Cat", "isCorrect": true },
+          { "text": "Tree", "isCorrect": false },
+          { "text": "Fish", "isCorrect": true },
+          { "text": "Banana", "isCorrect": false },
+          { "text": "Bird", "isCorrect": true },
+          { "text": "House", "isCorrect": false },
+          { "text": "Horse", "isCorrect": true },
+          { "text": "Chair", "isCorrect": false },
+          { "text": "Elephant", "isCorrect": true },
+          { "text": "Phone", "isCorrect": false }
+        ]
+      },
+      {
+        "questionText": "Đâu là động vật là con gì?",
+        "answers": [
+          { "text": "Dog", "isCorrect": true },
+          { "text": "Car", "isCorrect": false },
+          { "text": "Cat", "isCorrect": true },
+          { "text": "Tree", "isCorrect": false },
+          { "text": "Fish", "isCorrect": true },
+          { "text": "Banana", "isCorrect": false },
+          { "text": "Bird", "isCorrect": true },
+          { "text": "House", "isCorrect": false },
+          { "text": "Horse", "isCorrect": true },
+          { "text": "Chair", "isCorrect": false },
+          { "text": "Elephant", "isCorrect": true },
+          { "text": "Phone", "isCorrect": false }
+        ]
+      },
+      {
+        "questionText": "Chọn nguyên tố hóa học",
+        "answers": [
+          { "text": "Hydrogen", "isCorrect": true },
+          { "text": "Banana", "isCorrect": false },
+          { "text": "Oxygen", "isCorrect": true },
+          { "text": "Dog", "isCorrect": false },
+          { "text": "Neon", "isCorrect": true },
+          { "text": "Cat", "isCorrect": false },
+          { "text": "Helium", "isCorrect": true },
+          { "text": "Fish", "isCorrect": false },
+          { "text": "Nitrogen", "isCorrect": true },
+          { "text": "Chair", "isCorrect": false },
+          { "text": "Carbon", "isCorrect": true },
+          { "text": "Tree", "isCorrect": false }
+        ]
+      }
+    ]
+  },
+  {
+    "game": "2",
+    "level": "1",
+    "questions": [
+      {
+        "questionText": "Bạn có đồng ý rằng học lập trình giúp cải thiện tư duy logic không?",
+        "type": 1,
+        "answers": [
+          { "text": "Đồng tình", "isCorrect": true },
+          { "text": "Không đồng tình", "isCorrect": false }
+        ]
+      },
+      {
+        "questionText": "Bạn có đồng ý rằng AI sẽ thay thế hoàn toàn con người trong công việc không?",
+        "type": 1,
+        "answers": [
+          { "text": "Đồng tình", "isCorrect": false },
+          { "text": "Không đồng tình", "isCorrect": true }
+        ]
+      },
+      {
+        "questionText": "Đâu là thủ đô của Việt Nam?",
+        "type": 2,
+        "answers": [
+          { "text": "Hà Nội", "isCorrect": true },
+          { "text": "TP. Hồ Chí Minh", "isCorrect": false },
+          { "text": "Đà Nẵng", "isCorrect": false },
+          { "text": "Hải Phòng", "isCorrect": false }
+        ]
+      },
+      {
+        "questionText": "Hãy nhập vào ngôn ngữ lập trình mà bạn yêu thích nhất.",
+        "type": 3,
+        "answers": [
+          { "text": "Python", "isCorrect": true },
+          { "text": "Java", "isCorrect": false },
+          { "text": "C++", "isCorrect": false },
+          { "text": "JavaScript", "isCorrect": false }
+        ]
+      },
+      {
+        "questionText": "Những công nghệ nào sau đây liên quan đến trí tuệ nhân tạo?",
+        "type": 4,
+        "answers": [
+          { "text": "Machine Learning", "isCorrect": true },
+          { "text": "Blockchain", "isCorrect": false },
+          { "text": "Deep Learning", "isCorrect": true },
+          { "text": "Quantum Computing", "isCorrect": false },
+          { "text": "Neural Networks", "isCorrect": true },
+          { "text": "Cybersecurity", "isCorrect": false }
+        ]
+      }
+    ]
+  },
+  {
+    "game": "1",
+    "level": "2",
+    "questions": [
+      {
+        "questionText": "Đâu là ",
+        "answers": [
+          { "text": "Dog", "isCorrect": true },
+          { "text": "Car", "isCorrect": false },
+          { "text": "Cat", "isCorrect": true },
+          { "text": "Tree", "isCorrect": false },
+          { "text": "Fish", "isCorrect": true },
+          { "text": "Banana", "isCorrect": false },
+          { "text": "Bird", "isCorrect": true },
+          { "text": "House", "isCorrect": false },
+          { "text": "Horse", "isCorrect": true },
+          { "text": "Chair", "isCorrect": false },
+          { "text": "Elephant", "isCorrect": true },
+          { "text": "Phone", "isCorrect": false }
+        ]
+      },
+      {
+        "questionText": "Đâu là động vật là con gì?",
+        "answers": [
+          { "text": "Dog", "isCorrect": true },
+          { "text": "Car", "isCorrect": false },
+          { "text": "Cat", "isCorrect": true },
+          { "text": "Tree", "isCorrect": false },
+          { "text": "Fish", "isCorrect": true },
+          { "text": "Banana", "isCorrect": false },
+          { "text": "Bird", "isCorrect": true },
+          { "text": "House", "isCorrect": false },
+          { "text": "Horse", "isCorrect": true },
+          { "text": "Chair", "isCorrect": false },
+          { "text": "Elephant", "isCorrect": true },
+          { "text": "Phone", "isCorrect": false }
+        ]
+      },
+      {
+        "questionText": "Chọn nguyên tố hóa học",
+        "answers": [
+          { "text": "Hydrogen", "isCorrect": true },
+          { "text": "Banana", "isCorrect": false },
+          { "text": "Oxygen", "isCorrect": true },
+          { "text": "Dog", "isCorrect": false },
+          { "text": "Neon", "isCorrect": true },
+          { "text": "Cat", "isCorrect": false },
+          { "text": "Helium", "isCorrect": true },
+          { "text": "Fish", "isCorrect": false },
+          { "text": "Nitrogen", "isCorrect": true },
+          { "text": "Chair", "isCorrect": false },
+          { "text": "Carbon", "isCorrect": true },
+          { "text": "Tree", "isCorrect": false }
+        ]
+      }
+    ]
+  },
+  {
+    "game": "2",
+    "level": "2",
+    "questions": [
+      {
+        "questionText": "Bạn  không?",
+        "type": 1,
+        "answers": [
+          { "text": "Đồng tình", "isCorrect": true },
+          { "text": "Không đồng tình", "isCorrect": false }
+        ]
+      },
+      {
+        "questionText": "Bạn có đệc không?",
+        "type": 1,
+        "answers": [
+          { "text": "Đồng tình", "isCorrect": false },
+          { "text": "Không đồng tình", "isCorrect": true }
+        ]
+      },
+      {
+        "questionText": "Đâu làcủa Việt Nam?",
+        "type": 2,
+        "answers": [
+          { "text": "Hà Nội", "isCorrect": true },
+          { "text": "TP. Hồ Chí Minh", "isCorrect": false },
+          { "text": "Đà Nẵng", "isCorrect": false },
+          { "text": "Hải Phòng", "isCorrect": false }
+        ]
+      },
+      {
+        "questionText": "Hãy nhập vào n yêu thích nhất.",
+        "type": 3,
+        "answers": [
+          { "text": "Python", "isCorrect": true },
+          { "text": "Java", "isCorrect": false },
+          { "text": "C++", "isCorrect": false },
+          { "text": "JavaScript", "isCorrect": false }
+        ]
+      },
+      {
+        "questionText": "Những công tuệ nhân tạo?",
+        "type": 4,
+        "answers": [
+          { "text": "Machine Learning", "isCorrect": true },
+          { "text": "Blockchain", "isCorrect": false },
+          { "text": "Deep Learning", "isCorrect": true },
+          { "text": "Quantum Computing", "isCorrect": false },
+          { "text": "Neural Networks", "isCorrect": true },
+          { "text": "Cybersecurity", "isCorrect": false }
+        ]
+      }
+    ]
+  }
+]

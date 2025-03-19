@@ -23,9 +23,41 @@
         <div id="unity-build-title">Thử thách thỏ con</div>
       </div>
     </div>
-    <script>
+    <script>   
+    function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(";").shift();
+  return null;
+}
+const level = getCookie("level");
+const game = getCookie("game");
+console.log(level);
       var canvas = document.querySelector("#unity-canvas");
+      window.UnityGameConfig = {
+        webUrl: "https://www.facebook.com/",
+        jsonUrl: "http://localhost:8000/question.json",
+        game: game,
+        level:level,
+        score: 0
+      };
+      
+      function ShowScore() {
+        let score = window.UnityGameConfig.score || 0; // Lấy score, mặc định là 0
+        let scoreDisplay = document.getElementById("scoreDisplay");
 
+        if (scoreDisplay) {
+            scoreDisplay.innerText = "Score: " + score;
+        }
+
+        alert("Score hiển thị trên Web:", score);
+    }
+
+    // Hàm bắt đầu cập nhật điểm số theo khoảng thời gian
+    function StartUpdatingScore(interval = 1000) {
+        ShowScore(); // Gọi ngay khi bắt đầu
+        setInterval(ShowScore, interval); // Cập nhật điểm số định kỳ
+    }
       // Shows a temporary message banner/ribbon for a few seconds, or
       // a permanent error message on top of the canvas if type=='error'.
       // If type=='warning', a yellow highlight color is used.

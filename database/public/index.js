@@ -59,15 +59,11 @@ function getCookie(name) {
   if (parts.length === 2) return parts.pop().split(";").shift();
   return null;
 }
-// Check if user is logged in and display appropriate content
 document.addEventListener("DOMContentLoaded", function () {
   const rightSection = document.querySelector(".right-section");
   const token = getCookie("token");
 
-  // Helper function to get cookie by name
-
   if (token) {
-    // Token exists, fetch user data
     fetch("/getUser", {
       method: "GET",
       headers: {
@@ -83,7 +79,6 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((userData) => {
         console.log(userData);
         document.getElementById("dangky").style.display = "none";
-        // Show user name
         rightSection.innerHTML = `
           <div class="user-info">
             <div class="user-greeting">
@@ -99,12 +94,10 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
       })
       .catch((error) => {
-        // Error fetching user data, show register button
         console.error("Error fetching user data:", error);
         showRegisterButton(rightSection);
       });
   } else {
-    // No token, show register button
     showRegisterButton(rightSection);
   }
 });

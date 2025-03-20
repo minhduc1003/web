@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt"); // Thư viện mã hóa mật khẩu
 const path = require("path");
 const jwt = require("jsonwebtoken");
 const app = express();
-
+const cors = require("cors");
 // Middleware
 app.use(express.json()); // Xử lý dữ liệu JSON
 app.use(express.urlencoded({ extended: true })); // Xử lý dữ liệu form-urlencoded
@@ -15,6 +15,14 @@ const genarateToken = (id) => {
   return jwt.sign({ id }, process.env.ACCESS_TOKEN_SECRET || "secretToken");
 };
 // Kết nối MongoDB
+app.use(
+  cors({
+    origin: "*", // Allow all origins
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 mongoose
   .connect(
     "mongodb+srv://vuminhduc231003:duc123434@cluster0.ldosk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
@@ -33,6 +41,41 @@ const userSchema = new mongoose.Schema({
   password: String,
   level: String,
   game: String,
+  gameData: {
+    type: Array,
+    default: [
+      // Game 1
+      { level: 1, game: 1, score: 0, status: false, isUnlocked: true }, // First level is unlocked
+      { level: 2, game: 1, score: 0, status: false, isUnlocked: false },
+      { level: 3, game: 1, score: 0, status: false, isUnlocked: false },
+      { level: 4, game: 1, score: 0, status: false, isUnlocked: false },
+      { level: 5, game: 1, score: 0, status: false, isUnlocked: false },
+      { level: 6, game: 1, score: 0, status: false, isUnlocked: false },
+      { level: 7, game: 1, score: 0, status: false, isUnlocked: false },
+      { level: 8, game: 1, score: 0, status: false, isUnlocked: false },
+      { level: 9, game: 1, score: 0, status: false, isUnlocked: false },
+      // Game 2
+      { level: 1, game: 2, score: 0, status: false, isUnlocked: false }, // Unlocked after level 1 game 1
+      { level: 2, game: 2, score: 0, status: false, isUnlocked: false },
+      { level: 3, game: 2, score: 0, status: false, isUnlocked: false },
+      { level: 4, game: 2, score: 0, status: false, isUnlocked: false },
+      { level: 5, game: 2, score: 0, status: false, isUnlocked: false },
+      { level: 6, game: 2, score: 0, status: false, isUnlocked: false },
+      { level: 7, game: 2, score: 0, status: false, isUnlocked: false },
+      { level: 8, game: 2, score: 0, status: false, isUnlocked: false },
+      { level: 9, game: 2, score: 0, status: false, isUnlocked: false },
+      // Game 3
+      { level: 1, game: 3, score: 0, status: false, isUnlocked: false }, // Unlocked after level 1 game 2
+      { level: 2, game: 3, score: 0, status: false, isUnlocked: false },
+      { level: 3, game: 3, score: 0, status: false, isUnlocked: false },
+      { level: 4, game: 3, score: 0, status: false, isUnlocked: false },
+      { level: 5, game: 3, score: 0, status: false, isUnlocked: false },
+      { level: 6, game: 3, score: 0, status: false, isUnlocked: false },
+      { level: 7, game: 3, score: 0, status: false, isUnlocked: false },
+      { level: 8, game: 3, score: 0, status: false, isUnlocked: false },
+      { level: 9, game: 3, score: 0, status: false, isUnlocked: false },
+    ],
+  },
 });
 
 const User = mongoose.model("User", userSchema);
@@ -136,15 +179,86 @@ app.post("/playing", protect, async (req, res) => {
     res.status(500).json({ success: false, message: "Có lỗi xảy ra!" });
   }
 });
+app.get("/updateScore/:userId/:level/:game/:score", async (req, res) => {
+  try {
+    const { level, game, score, userId } = req.params;
+
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res
+        .status(404)
+        .json({ success: false, message: "User not found" });
+    }
+
+    const gameIndex = user.gameData.findIndex(
+      (item) => item.level === parseInt(level) && item.game === parseInt(game)
+    );
+
+    if (gameIndex === -1) {
+      return res.status(404).json({
+        success: false,
+        message: "Game level not found",
+      });
+    }
+
+    user.gameData[gameIndex].score = parseInt(score);
+    user.gameData[gameIndex].status = true;
+    if (parseInt(level) < 9 && parseInt(level) >= 1) {
+      const nextLevelIndex = user.gameData.findIndex(
+        (item) =>
+          item.level === parseInt(level) + 1 && item.game === parseInt(game)
+      );
+      console.log(game);
+      if (parseInt(game) === 3) {
+        const nextLevel = parseInt(level) + 1;
+        if (nextLevel <= 9) {
+          const nextLevelFirstGameIndex = user.gameData.findIndex(
+            (item) => item.level === nextLevel && item.game === 1
+          );
+          if (nextLevelFirstGameIndex !== -1) {
+            user.gameData[nextLevelFirstGameIndex].isUnlocked = true;
+          }
+        }
+      }
+    }
+
+    if (parseInt(game) < 3) {
+      const nextGameIndex = user.gameData.findIndex(
+        (item) =>
+          item.level === parseInt(level) && item.game === parseInt(game) + 1
+      );
+
+      if (nextGameIndex !== -1) {
+        user.gameData[nextGameIndex].isUnlocked = true;
+      }
+    }
+
+    user.markModified("gameData");
+
+    await user.save();
+
+    res.json({
+      success: true,
+      message: "Score updated successfully",
+      updatedGame: user.gameData[gameIndex],
+      gameData: user.gameData,
+    });
+  } catch (error) {
+    console.error("Update score error:", error);
+    res.status(500).json({ success: false, message: "Server error" });
+  }
+});
 app.get("/getUser", protect, async (req, res) => {
   try {
     const user = await User.findById(req.user._id);
     if (user) {
-      const { _id, name, email } = user;
+      const { _id, name, email, gameData } = user;
       res.json({
         _id,
         name,
         email,
+        gameData,
       });
     } else {
       res.status(404).json({ message: "User not found" });

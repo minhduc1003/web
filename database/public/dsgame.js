@@ -25,52 +25,55 @@ document.addEventListener("DOMContentLoaded", function () {
       })
       .then((userData) => {
         console.log(userData);
-        cardButton[0].addEventListener("click", function () {
-          if (
-            localStorage.getItem("level") != null &&
-            localStorage.getItem("game") != null
-          ) {
-            fetch("/playing", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json", // Gửi dữ liệu dưới dạng JSON
-                Authorization: `Bearer ${token}`,
-              },
-              body: JSON.stringify({
-                level: localStorage.getItem("level"),
-                game: localStorage.getItem("game"),
-              }), // Chuyển đổi object thành JSON
-            });
-            window.open(`http://localhost:4000/${userData._id}`, "_blank");
-          }
-        });
-        cardButton[1].addEventListener("click", function () {
-          if (
-            localStorage.getItem("level") != null &&
-            localStorage.getItem("game") != null
-          ) {
-            fetch("/playing", {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json", // Gửi dữ liệu dưới dạng JSON
-                Authorization: `Bearer ${token}`,
-              },
-              body: JSON.stringify({
-                level: localStorage.getItem("level"),
-                game: localStorage.getItem("game"),
-              }), // Chuyển đổi object thành JSON
-            });
-            window.open(`http://localhost:9000/${userData._id}`, "_blank");
+        const ports = [4000, 9000, 1000];
+        const level = localStorage.getItem("level");
+
+        const levelData = userData.gameData.filter(
+          (item) => item.level == level
+        );
+        cardButton.forEach((button, index) => {
+          if (levelData[index]) {
+            if (!levelData[index].isUnlocked) {
+              button.disabled = true;
+              button.classList.add("locked");
+              const lockIcon = document.createElement("span");
+              lockIcon.className = "lock-icon";
+              lockIcon.innerHTML = "🔒";
+              button.appendChild(lockIcon);
+            } else {
+              button.addEventListener("click", function () {
+                console.log(1);
+                if (
+                  localStorage.getItem("level") != null &&
+                  localStorage.getItem("game") != null
+                ) {
+                  fetch("/playing", {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                      Authorization: `Bearer ${token}`,
+                    },
+                    body: JSON.stringify({
+                      level: localStorage.getItem("level"),
+                      game: localStorage.getItem("game"),
+                    }),
+                  });
+                  window.open(
+                    `http://localhost:${ports[index]}/${userData._id}`,
+                    "_blank"
+                  );
+                }
+              });
+              button.disabled = false;
+              button.classList.remove("locked");
+            }
           }
         });
       })
       .catch((error) => {
-        // Error fetching user data, show register button
         console.error("Error fetching user data:", error);
-        showRegisterButton(rightSection);
       });
   } else {
-    // No token, show register button
-    showRegisterButton(rightSection);
+    window.open("/log_in.html", "_self");
   }
 });

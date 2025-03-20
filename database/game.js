@@ -25,6 +25,42 @@ const userSchema = new mongoose.Schema({
   password: String,
   level: String,
   game: String,
+  gameData: {
+    type: Array,
+    default: [
+      // Game 1
+      { level: 1, game: 1, score: 0, status: false, isUnlocked: true }, // First level is unlocked
+      { level: 2, game: 1, score: 0, status: false, isUnlocked: false },
+      { level: 3, game: 1, score: 0, status: false, isUnlocked: false },
+      { level: 4, game: 1, score: 0, status: false, isUnlocked: false },
+      { level: 5, game: 1, score: 0, status: false, isUnlocked: false },
+      { level: 6, game: 1, score: 0, status: false, isUnlocked: false },
+      { level: 7, game: 1, score: 0, status: false, isUnlocked: false },
+      { level: 8, game: 1, score: 0, status: false, isUnlocked: false },
+      { level: 9, game: 1, score: 0, status: false, isUnlocked: false },
+      // Game 2
+      { level: 1, game: 2, score: 0, status: false, isUnlocked: false }, // Unlocked after level 1 game 1
+      { level: 2, game: 2, score: 0, status: false, isUnlocked: false },
+      { level: 3, game: 2, score: 0, status: false, isUnlocked: false },
+      { level: 4, game: 2, score: 0, status: false, isUnlocked: false },
+      { level: 5, game: 2, score: 0, status: false, isUnlocked: false },
+      { level: 6, game: 2, score: 0, status: false, isUnlocked: false },
+      { level: 7, game: 2, score: 0, status: false, isUnlocked: false },
+      { level: 8, game: 2, score: 0, status: false, isUnlocked: false },
+      { level: 9, game: 2, score: 0, status: false, isUnlocked: false },
+      // Game 3
+      { level: 1, game: 3, score: 0, status: false, isUnlocked: false }, // Unlocked after level 1 game 2
+      { level: 2, game: 3, score: 0, status: false, isUnlocked: false },
+      { level: 3, game: 3, score: 0, status: false, isUnlocked: false },
+      { level: 4, game: 3, score: 0, status: false, isUnlocked: false },
+      { level: 5, game: 3, score: 0, status: false, isUnlocked: false },
+      { level: 6, game: 3, score: 0, status: false, isUnlocked: false },
+      { level: 7, game: 3, score: 0, status: false, isUnlocked: false },
+      { level: 8, game: 3, score: 0, status: false, isUnlocked: false },
+      { level: 9, game: 3, score: 0, status: false, isUnlocked: false },
+    ],
+  },
+  score: { type: Number, default: 0 },
 });
 const User = mongoose.model("User", userSchema);
 app.use("/:id", async (req, res, next) => {
@@ -53,6 +89,9 @@ app.use("/:id", async (req, res, next) => {
           httpOnly: false, // Allow JavaScript access
         });
         res.cookie("game", user.game, {
+          httpOnly: false, // Allow JavaScript access
+        });
+        res.cookie("userId", gameId, {
           httpOnly: false, // Allow JavaScript access
         });
       }

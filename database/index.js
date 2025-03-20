@@ -76,6 +76,7 @@ const userSchema = new mongoose.Schema({
       { level: 9, game: 3, score: 0, status: false, isUnlocked: false },
     ],
   },
+  score: { type: Number, default: 0 },
 });
 
 const User = mongoose.model("User", userSchema);
@@ -233,7 +234,11 @@ app.get("/updateScore/:userId/:level/:game/:score", async (req, res) => {
         user.gameData[nextGameIndex].isUnlocked = true;
       }
     }
-
+    let totalScore = 0;
+    for (const gameItem of user.gameData) {
+      totalScore += gameItem.score;
+    }
+    user.score = totalScore;
     user.markModified("gameData");
 
     await user.save();

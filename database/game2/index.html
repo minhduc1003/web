@@ -32,31 +32,17 @@
     }
     const level = getCookie("level");
     const game = getCookie("game");
+    const userId = getCookie("userId");
       var canvas = document.querySelector("#unity-canvas");
       window.UnityGameConfig = {
         webUrl: "https://www.facebook.com/",
         jsonUrl: "http://localhost:8000/question.json",
+        getUpdate: `http://localhost:3000/updateScore/${userId}/${level}/${game}`,
         game: game,
-        level: level,
+        level:level,
         score: 0
       };
-    //   function ShowScore() {
-    //     let score = window.UnityGameConfig.score || 0; // Lấy score, mặc định là 0
-    //     let scoreDisplay = document.getElementById("scoreDisplay");
-
-    //     if (scoreDisplay) {
-    //         scoreDisplay.innerText = "Score: " + score;
-    //     }
-
-    //     console.log("Score hiển thị trên Web:", score);
-    // }
-
-    // // Hàm bắt đầu cập nhật điểm số theo khoảng thời gian
-    // function StartUpdatingScore(interval = 1000) {
-    //     ShowScore(); // Gọi ngay khi bắt đầu
-    //     setInterval(ShowScore, interval); // Cập nhật điểm số định kỳ
-    // }
-
+      var canvas = document.querySelector("#unity-canvas");
 
       // Shows a temporary message banner/ribbon for a few seconds, or
       // a permanent error message on top of the canvas if type=='error'.

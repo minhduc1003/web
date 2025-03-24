@@ -1,3 +1,5 @@
+//docker build -t my-multi-server-app .
+//docker run -p 4000:4000 -p 9000:9000 -p 3000:3000 -p 8000:8000 my-multi-server-app
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
